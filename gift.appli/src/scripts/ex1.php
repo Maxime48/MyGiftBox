@@ -8,7 +8,7 @@ use gift\app\models\Prestation;
 use Illuminate\Database\Capsule\Manager as DB;
 
 $db = new DB();
-$db->addConnection(parse_ini_file(__DIR__ . '/../conf/conf.ini'));
+$db->addConnection(parse_ini_file(__DIR__ . '\..\conf\gift.db.conf.ini.dist'));
 $db->setAsGlobal();
 $db->bootEloquent();
 
