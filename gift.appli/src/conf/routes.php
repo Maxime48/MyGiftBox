@@ -99,16 +99,59 @@ return function ($app) {
                 $html = <<<HTML
                 <html lang="fr">
                 <head>
-                    <title>Prestation: {$prestation->libelle}</title>
+                    <title>Prestation {$prestation->libelle}</title>
                 </head>
                 <body>
-                    <h1>Prestation {$prestation->libelle}</h1>
+                    <h1>Prestation: {$prestation->libelle}</h1>
                     <p>{$prestation->description}</p>
                 </body>
                 </html>
             HTML;
             }
         }
+        $response->getBody()->write($html);
+        return $response;
+    });
+
+$app->get('/boxes/new', function (Request $request, Response $response, $args) {
+        $html = <<<HTML
+            <html lang="fr">
+            <head>
+                <title>Création d'une box</title>
+            </head>
+            <body>
+                <h1>Création d'une box</h1>
+                <form method="post">
+                    <label for="libelle">Libellé</label>
+                    <input type="text" name="libelle" id="libelle" />
+                    <br>
+                    <label for="description">Description</label>
+                    <textarea name="description" id="description"></textarea>
+                    <br>
+                    <input type="submit" value="Créer" />
+                </form>
+            </body>
+            </html>
+        HTML;
+        $response->getBody()->write($html);
+        return $response;
+    });
+
+    $app->post('/boxes/new', function (Request $request, Response $response, $args) {
+        $libelle = $request->getParsedBody()['libelle'];
+        $description = $request->getParsedBody()['description'];
+        $html = <<<HTML
+            <html lang="fr">
+            <head>
+                <title>Création d'une box</title>
+            </head>
+            <body>
+                <h1>Création d'une box</h1>
+                <p>Libellé: $libelle</p>
+                <p>Description: $description</p>
+            </body>
+            </html>
+        HTML;
         $response->getBody()->write($html);
         return $response;
     });
