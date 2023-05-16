@@ -2,7 +2,7 @@
 
 namespace gift\app\actions;
 
-use gift\app\models\Categorie;
+use gift\app\services\CategoriesService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -11,7 +11,7 @@ class CategoriesAction extends Action
 
     public function run(Request $request, Response $response, $args): string
     {
-        $categories = Categorie::all();
+        $categories = (new CategoriesService)->getCategories();
         $html = <<<HTML
             <html lang="fr">
             <head>
@@ -23,7 +23,7 @@ class CategoriesAction extends Action
         HTML;
         foreach ($categories as $categorie) {
             $html .= <<<HTML
-                    <li><a href="/categorie/{$categorie->id}">{$categorie->libelle}</a></li>
+                    <li><a href="/categorie/{$categorie["id"]}">{$categorie["libelle"]}</a></li>
             HTML;
         }
         $html .= <<<HTML
