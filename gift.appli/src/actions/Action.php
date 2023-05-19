@@ -10,8 +10,7 @@ abstract class Action
 
     public function __invoke(Request $request, Response $response, $args): Response
     {
-        $html = $this->run($request, $response, $args);
-        $response->getBody()->write($html);
+        $response->getBody()->write($this->run($request, $response, $args));
         return $response;
     }
 
