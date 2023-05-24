@@ -2,8 +2,7 @@
 
 namespace gift\app\actions;
 
-use gift\app\services\prestation\PrestationNotFoundException;
-use gift\app\services\prestation\PrestationsService;
+use gift\app\services\PrestationsService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -12,12 +11,35 @@ class PrestationAction extends Action
 
     public function run(Request $request, Response $response, $args): string
     {
-        if(!isset($request->getQueryParams()['id']) || empty($request->getQueryParams()['id'])){
-            throw new \Slim\Exception\HttpBadRequestException($request, "Il faut passer un paramètre id dans la query-string de l'URL");
-        }
-        try {
-            $prestation = (new PrestationsService)->getPrestationById($request->getQueryParams()['id']);
+        $id = $request->getQueryParams()['id'];
+        if ($id == null) {
             $html = <<<HTML
+            <html lang="fr">
+            <head>
+                <title>Erreur</title>
+            </head>
+            <body>
+                <h1>Erreur</h1>
+                <p>Il faut passer un paramètre id dans la query-string de l'URL</p>
+            </body>
+            </html>
+        HTML;
+        } else {
+            $prestation = (new PrestationsService)->getPrestationById($id);
+            if ($prestation == null) {
+                $html = <<<HTML
+                <html lang="fr">
+                <head>
+                    <title>Erreur</title>
+                </head>
+                <body>
+                    <h1>Erreur</h1>
+                    <p>Il n'y a pas de prestation avec l'id $id</p>
+                </body>
+                </html>
+            HTML;
+            } else {
+                $html = <<<HTML
                 <html lang="fr">
                 <head>
                     <title>Prestation {$prestation["libelle"]}</title>
@@ -28,9 +50,8 @@ class PrestationAction extends Action
                 </body>
                 </html>
             HTML;
-            return $html;
-        } catch (PrestationNotFoundException $e) {
-            throw new \Slim\Exception\HttpNotFoundException($request, $e->getMessage());
+            }
         }
+        return $html;
     }
 }

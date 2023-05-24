@@ -7,6 +7,10 @@ use Slim\Views\TwigMiddleware;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $app = \Slim\Factory\AppFactory::create();
+<<<<<<< HEAD
+=======
+$app->addRoutingMiddleware();
+>>>>>>> parent of a1c5989 (V4 du TD3 - Q3 Fonctionelle)
 
 $app->addRoutingMiddleware();
 $app->addErrorMiddleware(true,false,false);
