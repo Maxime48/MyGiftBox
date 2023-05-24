@@ -1,0 +1,15 @@
+<h2>Catégories</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Libellé</th>
+  </tr>
+  {% for categorie in categories %}
+    <tr>
+      <td>{{ categorie.id }}</td>
+      <td><a href={{base_path()}}/categories/{{ categorie.id }}>{{ categorie.libelle }}</a></td>
+    </tr>
+  {% endfor %}
+</table>
+

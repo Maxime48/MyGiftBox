@@ -1,4 +1,5 @@
 <?php
+namespace gift\app\services\utils;
 
 use Illuminate\Database\Capsule\Manager as DB;
 

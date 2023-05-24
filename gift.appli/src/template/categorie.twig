@@ -1,0 +1,18 @@
+<h2>Catégorie</h2>
+
+<p>ID: {{ categorie.id }}</p>
+<p>Libellé: {{ categorie.libelle }}</p>
+<p>Description: {{ categorie.description }}</p>
+
+<!-- Affichage des prestations liées à la catégorie -->
+<h3>Prestations</h3>
+<ul>
+  {% for prestation in categorie.prestations %}
+    <li>
+      {{ include('prestation.twig', {'prestation': prestation}) }}
+    </li>
+  {% endfor %}
+</ul>
+
+<!-- Lien de retour à la liste des catégories -->
+<a href="/categories/">Retour à la liste des catégories</a>
