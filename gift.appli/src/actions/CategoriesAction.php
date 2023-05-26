@@ -2,7 +2,7 @@
 
 namespace gift\app\actions;
 
-use gift\app\prestation\CategoriesService;
+use gift\app\services\CategoriesService;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Views\Twig;
 

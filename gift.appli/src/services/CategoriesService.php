@@ -1,9 +1,8 @@
 <?php
 
-namespace gift\app\prestation;
+namespace gift\app\services;
 
 use gift\app\models\Categorie;
-use gift\app\services\prestation\CategorieNotFoundException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class CategoriesService
