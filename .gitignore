@@ -1,0 +1,5 @@
+# Ignorer le fichier conf.ini
+*.ini
+
+# Ignorer tous les fichiers dans le répertoire vendor/
+vendor/*
