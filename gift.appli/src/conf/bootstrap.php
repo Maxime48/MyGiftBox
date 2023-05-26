@@ -8,9 +8,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 
 $app = \Slim\Factory\AppFactory::create();
 
-$app->addRoutingMiddleware();
 $app->addErrorMiddleware(true,false,false);
-$app->setBasePath('/MyGiftBox/gift.appli/public');
 
 Eloquent::init(__DIR__.'/conf.ini');
 
