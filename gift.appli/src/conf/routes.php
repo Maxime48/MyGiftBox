@@ -7,6 +7,7 @@ use gift\app\actions\BoxCreationHandlerAction;
 use gift\app\actions\CategoriesAction;
 use gift\app\actions\CategoryByIdAction;
 use gift\app\actions\PrestationAction;
+use gift\app\actions\AccueilAction;
 
 
 
@@ -14,6 +15,7 @@ use gift\app\actions\PrestationAction;
 
 return function ($app) {
 
+    $app->get('[/]',AccueilAction::class);
 
     $app->get('/categories[/]', CategoriesAction::class);
 
