@@ -2,4 +2,5 @@
 *.ini
 
 # Ignorer tous les fichiers dans le répertoire vendor/
-vendor/*
+/gift.appli/src/composer.lock
+/gift.appli/src/vendor/
