@@ -11,8 +11,13 @@
     {% for categorie in categories %}
       <tr>
         <td>{{ categorie.id }}</td>
-        <td><a href={{base_path()}}/categories/{{ categorie.id }}>{{ categorie.libelle }}</a></td>
+        <td>
+            <a href="{{ url_for('categorie', {'id': categorie.id}) }}">{{ categorie.libelle }}</a>
+        </td>
       </tr>
     {% endfor %}
   </table>
+
+  <a href="{{ url_for('accueil') }}">Accueil</a>
+
 {% endblock %}

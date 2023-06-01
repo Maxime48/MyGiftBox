@@ -8,15 +8,8 @@
     <p>Description: {{ categorie.description }}</p>
 
     <!-- Affichage des prestations liées à la catégorie -->
-    <h3>Prestations</h3>
-    <ul>
-        {% for prestation in categorie.prestations %}
-            <li>
-                {{ include('prestation.twig', {'prestation': prestation}) }}
-            </li>
-        {% endfor %}
-    </ul>
+    <a href="{{ url_for('prestations') }}?id={{ categorie.id }}">Voir les prestations</a>
 
     <!-- Lien de retour à la liste des catégories -->
-    <a href="/categories/">Retour à la liste des catégories</a>
+    <a href="{{ url_for('categories') }}">Retour à la liste des catégories</a>
 {% endblock %}

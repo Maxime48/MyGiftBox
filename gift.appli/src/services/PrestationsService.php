@@ -1,6 +1,6 @@
 <?php
 
-namespace gift\app\services\services;
+namespace gift\app\services;
 
 use gift\app\models\Categorie;
 use gift\app\models\Prestation;
@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class PrestationsService
 {
 
-    public function getPrestationById(string $id): array
+    public static function getPrestationById(string $id): array
     {
         try {
             return Prestation::findOrFail($id)->toArray();
@@ -18,7 +18,7 @@ class PrestationsService
         }
     }
 
-    public function getPrestationsByCategorie(int $categ_id): array
+    public static function getPrestationsByCategorie(int $categ_id): array
     {
         try {
             return Categorie::findOrFail($categ_id)->prestations()->get()->toArray();
