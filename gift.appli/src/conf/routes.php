@@ -20,7 +20,7 @@ return function ($app) {
 
     $app->get('/categories[/]', CategoriesAction::class)->setName('categories');
 
-    $app->get('/categories/{id}', CategoryByIdAction::class)->setName('categorie');
+    $app->get('/categorie/{id}', CategoryByIdAction::class)->setName('categorie');
 
     $app->get('/prestations', PrestationsAction::class)->setName('prestations');
 
