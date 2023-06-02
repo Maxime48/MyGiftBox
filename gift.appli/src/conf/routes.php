@@ -20,7 +20,7 @@ return function ($app) {
 
     $app->get('/categories[/]', CategoriesAction::class)->setName('categories');
 
-    $app->get('/categorie/{id}', CategoryByIdAction::class)->setName('categorie');
+    $app->get('/categories/{id}', CategoryByIdAction::class)->setName('categorie');
 
     $app->get('/prestations', PrestationsAction::class)->setName('prestations');
 
@@ -29,5 +29,7 @@ return function ($app) {
     $app->get('/boxes/new', BoxCreationAction::class)->setName('box_creation');
 
     $app->post('/boxes/new', BoxCreationHandlerAction::class)->setName('box_creation_handler');
+
+    
 
 };
