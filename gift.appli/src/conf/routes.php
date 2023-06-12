@@ -30,6 +30,9 @@ return function ($app) {
 
     $app->post('/boxes/new', BoxCreationHandlerAction::class)->setName('box_creation_handler');
 
+    $app->get('categories/create', CreateCategorieAction::class)->setName('create_categorie');
+    
+    $app->post('categories/create', CreateCategorieHandlerAction::class)->setName('create_categorie_handler');
     
 
 };
