@@ -6,6 +6,8 @@ use gift\app\actions\BoxCreationAction;
 use gift\app\actions\BoxCreationHandlerAction;
 use gift\app\actions\CategoriesAction;
 use gift\app\actions\CategoryByIdAction;
+use gift\app\actions\CreateCategorieAction;
+use gift\app\actions\CreateCategorieHandlerAction;
 use gift\app\actions\PrestationAction;
 use gift\app\actions\PrestationsAction;
 use gift\app\actions\AccueilAction;
@@ -30,9 +32,9 @@ return function ($app) {
 
     $app->post('/boxes/new', BoxCreationHandlerAction::class)->setName('box_creation_handler');
 
-    $app->get('categories/create', CreateCategorieAction::class)->setName('create_categorie');
+    $app->get('/categories/create', CreateCategorieAction::class)->setName('create_categorie');
     
-    $app->post('categories/create', CreateCategorieHandlerAction::class)->setName('create_categorie_handler');
+    $app->post('/categories/create', CreateCategorieHandlerAction::class)->setName('create_categorie_handler');
     
 
 };
