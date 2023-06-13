@@ -1,14 +1,14 @@
 {% extends 'layout.twig' %}
 
-{% block content %}
-  <form action="/create" method="post">
-    <label for="name"> Catégorie :</label>
-    <input type="text" id="name" name="Nom de la catégorie" required>
+{% block body %}
+  <form method="post">
+    <label for="libelle"> Catégorie :</label>
+    <input type="text" id="libelle" name="libelle" value="Nom de la catégorie" required>
     <br>
     <label for="description"> Description :</label>
-    <input type="text" id="description" name="Description de la catégorie" required>
+    <input type="text" id="description" name="description" value="Description de la catégorie" required>
     <br>
-    <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+    <input type="hidden" id="csrf_token" name="csrf_token" value="{{ csrf_token }}">
     <input type="submit" value="Valider">
   </form>
 
