@@ -28,7 +28,7 @@ class PrestationsService
         }
     }
 
-    public function createCategorie($data) {
+    public static function createCategorie($data) {
         // Vérifie le token CSRF
         CsrfService::checkToken($data['csrf_token']);
 
